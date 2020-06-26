@@ -1,0 +1,20 @@
+/* universal selector */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; /* force to inherit from body */
+}
+
+/* root selector  */
+html {
+    font-size: 62.5%; /* 100% = 16px so 10px = 62.5% (10/16) // 1 rem = 10px */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    background: linear-gradient(119.35deg, #3c4660 0%, #181e2e 100%);
+    color: var(--white);
+}

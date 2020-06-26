@@ -1,0 +1,12 @@
+{
+    "name": "ChromeExtension",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "compile:sass": "node-sass scss/style.scss css/style.css -w"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

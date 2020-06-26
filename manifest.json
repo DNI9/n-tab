@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+
+    "name": "GuunTab",
+    "description": "New tab replacement for focus.",
+    "version": "1.0.0",
+    "chrome_url_overrides": {
+        "newtab": "newtab.html"
+    },
+    "browser_action": {
+        "default_icon": "icon.png"
+    },
+    "permissions": ["activeTab"]
+}
