@@ -21,11 +21,19 @@
         }
     }
     .time {
+        @include noSelect;
         font-size: 18rem;
         line-height: 19rem;
         color: #323b52;
         letter-spacing: 2px;
-        text-shadow: 7px 8px 10px rgba(34, 41, 56, 0.5), -6px -7px 10px rgba(59, 69, 95, 0.5);
+        text-shadow: 7px 8px 10px rgba(34, 41, 56, 0.5), -6px -7px 10px rgba(59, 69, 95, 0.6);
+        &__divider {
+            @include noSelect;
+            animation: blink 1s ease-in-out alternate-reverse infinite;
+        }
+        span {
+            @include noSelect;
+        }
     }
 }
 
@@ -35,27 +43,60 @@
     flex-direction: column;
     align-items: flex-end;
     .title {
-        color: rgba(54, 65, 93, 0.37);
+        color: rgba(54, 65, 93, 0.2);
         font-size: 10rem;
         font-weight: 600;
         z-index: -1;
+        @include noSelect;
     }
 
     .taskLists {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: relative;
+        transform: translateY(-2.5rem);
         .list {
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 3rem;
-            width: 250px
+            height: auto;
+            width: 70%;
+            border-radius: 5px;
+            padding: 1.5rem 1.5rem;
             background-color: var(--dark2);
             &:not(:last-child) {
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            &__title {
+                font-weight: 500;
+                font-size: 1.8rem;
+                text-transform: capitalize;
+                letter-spacing: 1px;
+                width: 90%;
+            }
+
+            &__icon img {
+                cursor: pointer;
+                height: 1.8rem;
             }
         }
     }
 
     .FAB {
         margin-top: auto;
+        cursor: pointer;
+        background-color: var(--dark2);
+        width: 6rem;
+        height: 6rem;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3.8rem;
+        font-weight: 400;
     }
 }

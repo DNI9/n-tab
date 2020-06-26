@@ -1,0 +1,17 @@
+.list__activeMarker {
+    position: absolute;
+    top: 0;
+    left: 1rem;
+    width: 5.5rem;
+    height: 5px;
+    background-color: #3484ff;
+    box-shadow: 1px 3px 5px rgba(52, 132, 255, 0.26);
+}
+
+// disable selection
+@mixin noSelect {
+    &::selection {
+        background: transparent;
+        color: ini;
+    }
+}
