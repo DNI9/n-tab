@@ -7,6 +7,7 @@ const fab = document.querySelector('.FAB');
 const createTaskWrapper = document.querySelector('.createTask_wrapper');
 const submitBtn = document.querySelector('.newTask__submit');
 const taskForm = document.querySelector('.newTask__form');
+const closeIcon = document.querySelector('.closeIcon');
 
 // for the time
 setInterval(() => {
@@ -14,6 +15,7 @@ setInterval(() => {
     let hour = date.getHours();
     let minute = date.getMinutes();
     if (hour > 12) hour -= 12;
+    if (hour === 0) hour = 12;
     if (minute < 10) minute = '0' + minute;
     hours.textContent = hour;
     minutes.textContent = minute;
@@ -33,12 +35,17 @@ fab.addEventListener('click', (e) => {
     }
 });
 
-// Handling submit event
-taskForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+// close the popup
+closeIcon.addEventListener('click', () => {
+    createTaskWrapper.classList.add('d-none');
+    taskForm.reset();
 });
 
-// close the popup
+// Handling submit event
 submitBtn.addEventListener('click', (e) => {
-    createTaskWrapper.classList.add('d-none');
+    console.log(taskForm.taskName.value);
+});
+taskForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log(taskForm.taskName.value);
 });

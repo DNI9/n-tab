@@ -47,17 +47,19 @@
 
         <!-- Create new task popup -->
         <div class="createTask_wrapper d-none">
+            <img src="./img/close.svg" class="closeIcon" alt="close" title="Close and reset form">
             <div class="newTask">
                 <h1 class="newTask__title">create new task</h1>
                 <form class="newTask__form">
-                    <input autofocus type="text" name="taskName" class="newTask__input" placeholder="Enter task name">
+                    <input autofocus required type="text" name="taskName" class="newTask__input"
+                        placeholder="Enter task name">
 
                     <label class="checkbox_container">
                         <input type="checkbox">
                         <p>Lock task</p>
                     </label>
+                    <input type="submit" value="Create task" class="newTask__submit">
                 </form>
-                <button type="submit" class="newTask__submit">Create task</button>
             </div>
         </div>
     </div>

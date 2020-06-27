@@ -121,6 +121,23 @@
 
     animation: moveUp 0.2s ease-in-out;
 
+    .closeIcon {
+        position: absolute;
+        right: 2rem;
+        top: 2rem;
+        height: 3.5rem;
+        opacity: 0.8;
+        cursor: pointer;
+        transition: transform 0.3s ease-in;
+        &:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+        &:active {
+            transform: scale(0.9, 0.9);
+        }
+    }
+
     .newTask {
         display: flex;
         flex-direction: column;
@@ -169,6 +186,21 @@
                     //     3px 3px no-repeat;
                 }
             }
+            input[type='submit'] {
+                margin-top: 2.5rem;
+                padding: 1.3rem 2.3rem;
+                font-family: 'Poppins', sans-serif;
+                font-weight: 500;
+                letter-spacing: 1px;
+                font-size: 1.5rem;
+                cursor: pointer;
+                border-radius: 2px;
+                outline: none;
+                border: none;
+
+                // &:hover {
+                // }
+            }
         }
 
         &__title {
@@ -192,22 +224,6 @@
             &::placeholder {
                 color: rgb(67, 77, 104);
                 font-size: 2rem;
-            }
-        }
-
-        &__submit {
-            margin-top: 2.5rem;
-            padding: 1.3rem 2.3rem;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            letter-spacing: 1px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            border-radius: 2px;
-            outline: none;
-            border: none;
-
-            &:hover {
             }
         }
     }
