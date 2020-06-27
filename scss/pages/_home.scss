@@ -4,6 +4,7 @@
     display: flex;
     padding: 2rem 4rem;
     overflow-y: hidden;
+    position: relative;
 }
 
 .left_section {
@@ -21,18 +22,18 @@
         }
     }
     .time {
-        @include noSelect;
+        @include disableSelection;
         font-size: 18rem;
         line-height: 19rem;
         color: #323b52;
         letter-spacing: 2px;
         text-shadow: 7px 8px 10px rgba(34, 41, 56, 0.5), -6px -7px 10px rgba(59, 69, 95, 0.6);
         &__divider {
-            @include noSelect;
+            @include disableSelection;
             animation: blink 1s ease-in-out alternate-reverse infinite;
         }
         span {
-            @include noSelect;
+            @include disableSelection;
         }
     }
 }
@@ -47,7 +48,7 @@
         font-size: 10rem;
         font-weight: 600;
         z-index: -1;
-        @include noSelect;
+        @include disableSelection;
     }
 
     .taskLists {
@@ -98,5 +99,116 @@
         align-items: center;
         font-size: 3.8rem;
         font-weight: 400;
+        @include disableSelection;
+
+        &:hover {
+            color: var(--blue);
+        }
+
+        &:active {
+            animation: scaleDown 1s ease-in;
+        }
+    }
+}
+
+.createTask_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(24, 30, 46, 0.95);
+
+    animation: moveUp 0.2s ease-in-out;
+
+    .newTask {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        &__form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .checkbox_container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 1.5rem;
+                cursor: pointer;
+                @include disableSelection;
+
+                p {
+                    margin-left: 0.5rem;
+                    font-size: 1.8rem;
+                    letter-spacing: 1px;
+                }
+
+                input[type='checkbox']:focus {
+                    outline: none;
+                }
+
+                input[type='checkbox'] {
+                    background-color: var(--white);
+                    border-radius: 25px;
+                    appearance: none;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    cursor: pointer;
+                }
+
+                input[type='checkbox']:checked {
+                    background-color: var(--blue);
+                    // background: #409fd6
+                    //     url('data:image/gif;base64,R0lGODlhCwAKAIABAP////3cnSH5BAEKAAEALAAAAAALAAoAAAIUjH+AC73WHIsw0UCjglraO20PNhYAOw==')
+                    //     3px 3px no-repeat;
+                }
+            }
+        }
+
+        &__title {
+            @include disableSelection;
+            text-transform: capitalize;
+            font-size: 4.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        &__input {
+            background-color: rgb(37, 44, 63);
+            outline: none;
+            border: none;
+            min-width: 40rem;
+            height: 5rem;
+            font-size: 2.2rem;
+            color: var(--white);
+            padding: 1.5rem;
+
+            &::placeholder {
+                color: rgb(67, 77, 104);
+                font-size: 2rem;
+            }
+        }
+
+        &__submit {
+            margin-top: 2.5rem;
+            padding: 1.3rem 2.3rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 2px;
+            outline: none;
+            border: none;
+
+            &:hover {
+            }
+        }
     }
 }

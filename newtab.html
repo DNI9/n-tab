@@ -25,26 +25,41 @@
                 <div class="list">
                     <div class="list__activeMarker"></div>
                     <div class="list__title">handle unfinished projects</div>
-                    <div class="list__icon locked">
-                        <img src="./img/locked.svg" alt="locked" title="locked task">
+                    <div class="list__icon locked" title="Locked task">
+                        <img src="./img/locked.svg" title="Locked task" alt="">
                     </div>
                 </div>
                 <div class="list">
                     <div class="list__title">Check for any assignments</div>
-                    <div class="list__icon locked">
-                        <img src="./img/locked.svg" alt="locked" title="locked task">
+                    <div class="list__icon locked" title="Locked task">
+                        <img src="./img/locked.svg" title="Locked task" alt="">
                     </div>
                 </div>
                 <div class="list">
                     <div class="list__title">Practice coding challenges</div>
-                    <div class="list__icon editable">
-                        <img src="./img/editable.svg" alt="editable" title="edit">
+                    <div class="list__icon editable" title="Edit task">
+                        <img src="./img/editable.svg" title="Edit task" alt="">
                     </div>
                 </div>
             </div>
             <div class="FAB" title="Add new Task">+</div>
-    </div>
-    </section>
+        </section>
+
+        <!-- Create new task popup -->
+        <div class="createTask_wrapper d-none">
+            <div class="newTask">
+                <h1 class="newTask__title">create new task</h1>
+                <form class="newTask__form">
+                    <input autofocus type="text" name="taskName" class="newTask__input" placeholder="Enter task name">
+
+                    <label class="checkbox_container">
+                        <input type="checkbox">
+                        <p>Lock task</p>
+                    </label>
+                </form>
+                <button type="submit" class="newTask__submit">Create task</button>
+            </div>
+        </div>
     </div>
     <script src="./js/app.js"></script>
 </body>
