@@ -25,6 +25,8 @@ setInterval(() => {
 taskLists.addEventListener('click', (e) => {
     if (e.target.parentElement.classList.contains('list__icon')) {
         console.log('button clicked');
+
+        // TODO
     }
 });
 
@@ -41,11 +43,35 @@ closeIcon.addEventListener('click', () => {
     taskForm.reset();
 });
 
+// add task to list
+const addTask = (taskName, lockTaskBool, importantTaskBool) => {
+    let taskTemplate = `
+    <div class="list">
+    ${importantTaskBool ? '<div class="list__activeMarker"></div>' : ''}
+    <div class="list__title">${taskName}</div>
+        <div class="list__icon ${lockTaskBool ? 'locked' : 'editable'}"
+        title="${lockTaskBool ? 'Locked' : 'Edit'} task">
+            <img src="./img/${lockTaskBool ? 'locked' : 'editable'}.svg"
+            title="${lockTaskBool ? 'Locked' : 'Edit'} task" alt="">
+        </div>
+    </div>`;
+    taskLists.innerHTML += taskTemplate;
+};
+
 // Handling submit event
 submitBtn.addEventListener('click', (e) => {
-    console.log(taskForm.taskName.value);
+    let taskName = taskForm.taskName.value.trim();
+    let lockTaskBool = taskForm.lockTask.checked;
+    let importantTaskBool = taskForm.importantTask.checked;
+    if (taskName !== '') {
+        addTask(taskName, lockTaskBool, importantTaskBool);
+        createTaskWrapper.classList.add('d-none');
+        taskForm.reset();
+    } else {
+        taskForm.taskName.value = '';
+    }
 });
+
 taskForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(taskForm.taskName.value);
 });

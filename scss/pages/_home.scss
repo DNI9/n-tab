@@ -58,6 +58,12 @@
         align-items: flex-end;
         position: relative;
         transform: translateY(-2.5rem);
+        overflow-y: auto;
+        // hide scrollbar
+        // TODO: add a custom scrollbar
+        &::-webkit-scrollbar {
+            display: none;
+        }
         .list {
             position: relative;
             display: flex;
@@ -157,10 +163,19 @@
                 justify-content: center;
                 align-items: center;
                 margin-top: 1.5rem;
-                cursor: pointer;
                 @include disableSelection;
 
-                p {
+                .checkBox {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &:not(:last-child) {
+                        margin-right: 1.5rem;
+                    }
+                }
+
+                label {
+                    cursor: pointer;
                     margin-left: 0.5rem;
                     font-size: 1.8rem;
                     letter-spacing: 1px;

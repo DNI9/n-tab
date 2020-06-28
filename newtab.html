@@ -22,7 +22,7 @@
         <section class="right_section">
             <div class="title">daily tasks.</div>
             <div class="taskLists">
-                <div class="list">
+                <!-- <div class="list">
                     <div class="list__activeMarker"></div>
                     <div class="list__title">handle unfinished projects</div>
                     <div class="list__icon locked" title="Locked task">
@@ -40,7 +40,7 @@
                     <div class="list__icon editable" title="Edit task">
                         <img src="./img/editable.svg" title="Edit task" alt="">
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="FAB" title="Add new Task">+</div>
         </section>
@@ -54,10 +54,16 @@
                     <input autofocus required type="text" name="taskName" class="newTask__input"
                         placeholder="Enter task name">
 
-                    <label class="checkbox_container">
-                        <input type="checkbox">
-                        <p>Lock task</p>
-                    </label>
+                    <div class="checkbox_container">
+                        <div class="lockTask checkBox">
+                            <input type="checkbox" name="lockTask" id="lockTask">
+                            <label for="lockTask">Lock task</label>
+                        </div>
+                        <div class="importantTask checkBox">
+                            <input type="checkbox" name="importantTask" id="importantTask">
+                            <label for="importantTask">Mark as important</label>
+                        </div>
+                    </div>
                     <input type="submit" value="Create task" class="newTask__submit">
                 </form>
             </div>

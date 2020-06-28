@@ -215,6 +215,11 @@ body {
   position: relative;
   -webkit-transform: translateY(-2.5rem);
           transform: translateY(-2.5rem);
+  overflow-y: auto;
+}
+
+.right_section .taskLists::-webkit-scrollbar {
+  display: none;
 }
 
 .right_section .taskLists .list {
@@ -365,14 +370,30 @@ body {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 1.5rem;
-  cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.createTask_wrapper .newTask__form .checkbox_container p {
+.createTask_wrapper .newTask__form .checkbox_container .checkBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.createTask_wrapper .newTask__form .checkbox_container .checkBox:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.createTask_wrapper .newTask__form .checkbox_container label {
+  cursor: pointer;
   margin-left: 0.5rem;
   font-size: 1.8rem;
   letter-spacing: 1px;
