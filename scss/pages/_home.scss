@@ -30,7 +30,7 @@
         text-shadow: 7px 8px 10px rgba(34, 41, 56, 0.5), -6px -7px 10px rgba(59, 69, 95, 0.6);
         &__divider {
             @include disableSelection;
-            animation: blink 1s ease-in-out alternate-reverse infinite;
+            animation: blink 1s cubic-bezier(0.45, 0.01, 0.35, 1.02) alternate-reverse infinite;
         }
         span {
             @include disableSelection;
@@ -59,11 +59,10 @@
         position: relative;
         transform: translateY(-2.5rem);
         overflow-y: auto;
-        // hide scrollbar
-        // TODO: add a custom scrollbar
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        padding: 0 0.5rem;
+
+        @include customScrollBar;
+
         .list {
             position: relative;
             display: flex;

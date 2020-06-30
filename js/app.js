@@ -87,9 +87,9 @@ const addTask = (taskName, lockTaskBool, importantTaskBool, taskID) => {
     ${importantTaskBool ? '<div class="list__activeMarker"></div>' : ''}
     <div class="list__title">${taskName}</div>
         <div class="list__icon ${lockTaskBool ? 'locked' : 'deletable'}"
-        title="${lockTaskBool ? 'Locked' : 'Delete'} task">
+        title="${lockTaskBool ? 'Locked' : 'Delete'} task, click to unlock">
             <img src="./img/${lockTaskBool ? 'locked' : 'delete'}.svg"
-            title="${lockTaskBool ? 'Locked' : 'Delete'} task" alt="">
+            title="${lockTaskBool ? 'Locked' : 'Delete'} task, click to unlock" alt="">
         </div>
     </div>`;
     taskLists.innerHTML += taskTemplate;
