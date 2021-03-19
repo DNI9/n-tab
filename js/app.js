@@ -71,12 +71,31 @@ const deleteFromStorage = (id) => {
     }
 };
 
-// delete task
+const editTask = (id) => {
+    try {
+        const tasks = JSON.parse(localStorage?.tasks);
+        const task = tasks.find((task) => task.taskID == id);
+        task.lockTaskBool = false;
+        localStorage.tasks = JSON.stringify(tasks);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+// delete/edit task
 taskLists.addEventListener('click', (e) => {
     if (e.target.parentElement.classList.contains('deletable')) {
         let targetTaskID = e.target.parentElement.parentElement.dataset.taskid;
         deleteFromStorage(targetTaskID);
         e.target.parentElement.parentElement.remove();
+    }
+
+    // Unlock tasks
+    if (e.target.parentElement.classList.contains('locked')) {
+        let targetTaskID = e.target.parentElement.parentElement.dataset.taskid;
+        e.target.parentElement.classList.replace('locked', 'deletable');
+        e.target.parentElement.innerHTML = `<img src="./img/delete.svg" title="Delete task" alt="">`;
+        editTask(targetTaskID);
     }
 });
 
@@ -89,7 +108,9 @@ const addTask = (taskName, lockTaskBool, importantTaskBool, taskID) => {
         <div class="list__icon ${lockTaskBool ? 'locked' : 'deletable'}"
         title="${lockTaskBool ? 'Locked' : 'Delete'} task, click to unlock">
             <img src="./img/${lockTaskBool ? 'locked' : 'delete'}.svg"
-            title="${lockTaskBool ? 'Locked' : 'Delete'} task, click to unlock" alt="">
+            title="${
+                lockTaskBool ? 'Locked' : 'Delete'
+            } task, click to unlock" alt="">
         </div>
     </div>`;
     taskLists.innerHTML += taskTemplate;
@@ -121,7 +142,12 @@ taskForm.addEventListener('submit', (e) => {
     if (localStorage.getItem('tasks') !== null) {
         tasks = JSON.parse(localStorage.getItem('tasks'));
         tasks.forEach((item) => {
-            addTask(item.taskName, item.lockTaskBool, item.importantTaskBool, item.taskID);
+            addTask(
+                item.taskName,
+                item.lockTaskBool,
+                item.importantTaskBool,
+                item.taskID
+            );
         });
     }
 })();
