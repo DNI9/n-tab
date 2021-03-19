@@ -1,3 +1,5 @@
-# Chrome/Edge new tab replacement for my focus on tasks !
+# A simple chrome extension to keep track of tasks made with vanilla JS.
 
-![screenshot](https://github.com/GuUn-pRoJecTs/ChromeNewTabExtension/raw/master/img/ss.png)
+![screenshot](screenshots/page.png)
+
+-   click on username to change default name
