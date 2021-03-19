@@ -1,13 +1,17 @@
 // https://developer.chrome.com/extensions/getstarted
-//
-const hours = document.querySelector('.hours');
-const minutes = document.querySelector('.minutes');
-const taskLists = document.querySelector('.taskLists');
-const fab = document.querySelector('.FAB');
-const createTaskWrapper = document.querySelector('.createTask_wrapper');
-const submitBtn = document.querySelector('.newTask__submit');
-const taskForm = document.querySelector('.newTask__form');
-const closeIcon = document.querySelector('.closeIcon');
+
+// Alias
+const $ = document.querySelector.bind(document);
+
+const hours = $('.hours');
+const minutes = $('.minutes');
+const taskLists = $('.taskLists');
+const fab = $('.FAB');
+const createTaskWrapper = $('.createTask_wrapper');
+const submitBtn = $('.newTask__submit');
+const taskForm = $('.newTask__form');
+const closeIcon = $('.closeIcon');
+const greetingName = $('.greeting__name');
 
 // for the time
 setInterval(() => {
