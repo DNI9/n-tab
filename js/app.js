@@ -46,6 +46,28 @@ closeIcon.addEventListener('click', () => {
     taskForm.reset();
 });
 
+const changeNameModal = new tingle.modal({
+    closeMethods: ['overlay', 'escape'],
+});
+
+changeNameModal.setContent(`
+<input id='change-name' autofocus required type="text" name="name" placeholder="Enter your name">
+<button class='change-name__btn' onclick='saveUserName()'>Ok</button>
+`);
+
+const saveUserName = () => {
+    const name = $('#change-name').value;
+    if (!name) return;
+    localStorage.setItem('n-tab_username', name?.slice(0, 10));
+    $('.greeting__name').innerText =
+        localStorage.getItem('n-tab_username') || 'User';
+    changeNameModal.close();
+};
+
+$('.greeting__name').addEventListener('click', () => {
+    changeNameModal.open();
+});
+
 // save to local storage
 const saveToStorage = (taskName, lockTaskBool, importantTaskBool, taskID) => {
     let tasks;
@@ -142,6 +164,8 @@ taskForm.addEventListener('submit', (e) => {
 
 // initializer
 (function () {
+    $('.greeting__name').innerText =
+        localStorage.getItem('n-tab_username') || 'User';
     let tasks;
     if (localStorage.getItem('tasks') !== null) {
         tasks = JSON.parse(localStorage.getItem('tasks'));
